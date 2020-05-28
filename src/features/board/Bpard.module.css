@@ -1,0 +1,5 @@
+.board {
+  flex-grow: 1;
+  border: 2px solid gray;
+  margin: 8px;
+}
