@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import styles from './Board.module.css'
 
-import DraggableTwo from './DraggableTwo'
-
 import Draggable from './Draggable'
 
 export function Board() {
@@ -16,10 +14,7 @@ export function Board() {
 
   return (
       <div className={styles.board}>
-        {/*<DraggableComponent/>*/}
-        <Draggable x={50} y={200}/>
-        <DraggableTwo x={position.x} y={position.y} onMove={move}>
-        </DraggableTwo>
+        <Draggable x={position.x} y={position.y} onMove={move}/>
       </div>
   );
 }

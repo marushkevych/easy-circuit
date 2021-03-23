@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useRef } from 'react'
 import useDragging from './useDragging'
+import styles from './Board.module.css'
 
-export default function Draggable({x, y}) {
-  const [ref, position, isDragging] = useDragging({x, y})
+export default function Draggable({x, y, onMove}) {
+  const ref = useRef(null);
+  useDragging(ref, {x, y}, onMove)
 
   const style = {
     position: "absolute",
     width: 50,
     height: 100,
-    background: isDragging ? "blue" : "gray",
-    left: x,
-    top: y,
+    /* opaque background is important for performance */
+    background: "gray",
+    /* avoid selecting text while dragging */
+    ["user-select"]: "none"
   }
 
   return (
-      <div ref={ref} style={style}>Foo</div>
+    <div ref={ref} style={style}>Foo</div>
   );
 }
