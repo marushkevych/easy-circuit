@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 
-export default function useDragging() {
+export default function useDragging(initPos) {
   const [isDragging, setIsDragging] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const ref = useRef(null);
@@ -9,14 +9,20 @@ export default function useDragging() {
     if (e.button !== 0) return;
     setIsDragging(true);
 
-    setPos({
-      x: e.x - ref.current.offsetWidth / 2,
-      y: e.y - ref.current.offsetHeight / 2,
-    });
+    // setPos({
+    //   x: e.x - ref.current.offsetWidth / 2,
+    //   y: e.y - ref.current.offsetHeight / 2,
+    // });
 
     e.stopPropagation();
     e.preventDefault();
   }
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.style.transform = `translate(${pos.x}px, ${pos.y}px)`
+    }
+  }, [pos])
 
   // When the element mounts, attach an mousedown listener
   useEffect(() => {
@@ -33,9 +39,13 @@ export default function useDragging() {
   useEffect(() => {
     function onMouseMove(e) {
       if (!isDragging) return;
+
+      // const rect = ref.current.getBoundingClientRect()
+      // // console.log('event', e)
+
       setPos({
-        x: e.x - ref.current.offsetWidth / 2,
-        y: e.y - ref.current.offsetHeight / 2,
+        x: e.x - ref.current.offsetWidth / 2 - initPos.x,
+        y: e.y - ref.current.offsetHeight / 2 - initPos.y,
       });
       // e.stopPropagation();
       // e.preventDefault();
@@ -59,5 +69,5 @@ export default function useDragging() {
     };
   }, [isDragging]);
 
-  return [ref, pos.x, pos.y, isDragging];
+  return [ref, pos, isDragging];
 }
