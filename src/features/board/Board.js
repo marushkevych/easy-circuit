@@ -5,16 +5,15 @@ import Draggable from './Draggable'
 
 export function Board() {
 
-  const [position, setPosition] = useState({
-    x: 100,
-    y: 200,
+  const [state, setState] = useState({
+    moving: false,
+    position: { x: 50, y: 100 },
+    delta: undefined
   });
-
-  const move = (x, y) => setPosition({x, y});
 
   return (
       <div id="board" className={styles.board}>
-        <Draggable x={position.x} y={position.y} onMove={move}/>
+        <Draggable state={state} onMove={setState}/>
       </div>
   );
 }

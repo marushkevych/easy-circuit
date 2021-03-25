@@ -1,7 +1,15 @@
 .board {
+  position: relative;
   flex-grow: 1;
   border: 2px solid gray;
-  margin: 20px;
-  height: 1000px;
-  width: 2000px;
+  margin: 50px;
+}
+
+.movable {
+  position: absolute;
+  padding: 5px;
+  border: 1px solid black;
+  cursor: grab;
+  user-select: none;
+  white-space: nowrap;
 }
