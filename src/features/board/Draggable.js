@@ -30,6 +30,11 @@ export default function Draggable({state, onMove}) {
   };
 
   return (
-    <div ref={ref} style={style} className={styles.movable}>DRAG ME</div>
+    <div ref={ref} style={style} className={styles.movable}>
+      <svg height="205" width="200">
+        <polygon points="100,10 40,198 190,78 10,78 160,198" style={{fill: 'lime', stroke: 'purple', strokeWidth: 5, fillRule: 'nonzero'}}/>
+        Sorry, your browser does not support inline SVG.
+      </svg>
+    </div>
   );
 }
