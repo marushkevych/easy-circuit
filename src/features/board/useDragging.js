@@ -17,13 +17,14 @@ const throttle = (f) => {
 };
 
 export default function useDragging(ref, position, onMove) {
+  // coordinates of mouse-down relative to current element
   let relX = 0;
   let relY = 0;
 
   const onMouseMove = (event) => {
     onMove(
-      event.pageX - relX,
-      event.pageY - relY,
+      event.layerX - relX,
+      event.layerY - relY,
     );
     event.preventDefault();
   };

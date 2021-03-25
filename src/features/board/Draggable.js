@@ -13,7 +13,7 @@ export default function Draggable({x, y, onMove}) {
     /* opaque background is important for performance */
     background: "gray",
     /* avoid selecting text while dragging */
-    ["user-select"]: "none"
+    userSelect: "none"
   }
 
   return (

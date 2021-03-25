@@ -1,19 +1,5 @@
 .board {
   flex-grow: 1;
-  /*border: 2px solid gray;*/
-  /*margin: 8px;*/
-}
-
-
-.draggable {
-  position: absolute;
-  width: 50px;
-  height: 100px;
-  background-color: gray;
-  /* just to size it to content */
-  display: inline-block;
-  /* opaque background is important for performance */
-  background: gray;
-  /* avoid selecting text while dragging */
-  user-select: none;
+  border: 2px solid gray;
+  margin: 20px;
 }

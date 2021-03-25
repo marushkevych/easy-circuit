@@ -13,7 +13,7 @@ export function Board() {
   const move = (x, y) => setPosition({x, y});
 
   return (
-      <div className={styles.board}>
+      <div id="board" className={styles.board}>
         <Draggable x={position.x} y={position.y} onMove={move}/>
       </div>
   );
