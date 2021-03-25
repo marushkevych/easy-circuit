@@ -39,14 +39,14 @@ export default function useDragging(ref, position, onMove) {
     if (event.button !== 0) {
       return;
     }
-    const {scrollLeft, scrollTop, clientLeft, clientTop} = document.body;
+
     // Try to avoid calling `getBoundingClientRect` if you know the size
     // of the moving element from the beginning. It forces reflow and is
     // the laggiest part of the code right now. Luckily it's called only
     // once per click.
     const {left, top} = ref.current.getBoundingClientRect();
-    relX = event.pageX - (left + scrollLeft - clientLeft);
-    relY = event.pageY - (top + scrollTop - clientTop);
+    relX = event.pageX - (left + window.pageXOffset);
+    relY = event.pageY - (top + window.pageYOffset);
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
     event.preventDefault();
