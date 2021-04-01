@@ -1,19 +1,17 @@
-import React, { useState } from 'react'
+import React  from 'react'
+import { useSelector } from 'react-redux';
+import { selectComponents } from './boardSlice'
+import { values } from 'ramda';
+
 import styles from './Board.module.css'
 
 import Draggable from './Draggable'
 
 export function Board() {
-
-  const [state, setState] = useState({
-    moving: false,
-    position: { x: 50, y: 100 },
-    delta: undefined
-  });
-
+  const components = useSelector(selectComponents);
   return (
-      <div id="board" className={styles.board}>
-        <Draggable state={state} onMove={setState}/>
-      </div>
+    <div id="board" className={styles.board}>
+      {values(components).map(component => <Draggable key={component.id} {...component}/>)}
+    </div>
   );
 }
