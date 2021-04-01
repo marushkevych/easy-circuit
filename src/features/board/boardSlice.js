@@ -6,7 +6,7 @@ export const boardSlice = createSlice({
     components: {
       1: {
         id: 1,
-        type: 'star',
+        type: 'Star',
         moveData: {
           moving: false,
           position: { x: 50, y: 100 },
@@ -15,7 +15,7 @@ export const boardSlice = createSlice({
       },
       2: {
         id: 2,
-        type: 'star',
+        type: 'Circle',
         moveData: {
           moving: false,
           position: { x: 600, y: 100 },

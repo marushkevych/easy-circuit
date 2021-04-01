@@ -5,7 +5,7 @@ import styles from './Board.module.css'
 import { useDispatch } from 'react-redux';
 import { updateElementMoveData } from './boardSlice'
 
-export default function Draggable({id, moveData}) {
+export default function Draggable({id, moveData, children}) {
   const dispatch = useDispatch();
 
   const [state, setState] = useState(moveData);
@@ -49,10 +49,7 @@ export default function Draggable({id, moveData}) {
 
   return (
     <div ref={ref} style={style} className={styles.movable}>
-      <svg height="205" width="200">
-        <polygon points="100,10 40,198 190,78 10,78 160,198" style={{fill: 'lime', stroke: 'purple', strokeWidth: 5, fillRule: 'nonzero'}}/>
-        Sorry, your browser does not support inline SVG.
-      </svg>
+      {children}
     </div>
   );
 }
