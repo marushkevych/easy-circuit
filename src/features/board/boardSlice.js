@@ -22,6 +22,15 @@ export const boardSlice = createSlice({
           delta: undefined
         }
       },
+      3: {
+        id: 3,
+        type: 'Switch',
+        moveData: {
+          moving: false,
+          position: { x: 600, y: 300 },
+          delta: undefined
+        }
+      },
     },
   },
   reducers: {

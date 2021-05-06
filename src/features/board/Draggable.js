@@ -39,7 +39,7 @@ export default function Draggable({id, moveData, children}) {
   const ref = useMovable({ onChange: handleChange, bounds: "parent" });
 
   const style = {
-    backgroundColor: state.moving ? "red" : "transparent",
+    // backgroundColor: state.moving ? "red" : "transparent",
     left: state.position.x,
     top: state.position.y,
     transform: state.delta

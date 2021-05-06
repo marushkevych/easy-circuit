@@ -2,6 +2,7 @@ import React  from 'react'
 import { useSelector } from 'react-redux';
 import { selectComponents } from './boardSlice'
 import { values } from 'ramda';
+import Switch from './svgComponents/Switch';
 
 import styles from './Board.module.css'
 
@@ -21,7 +22,7 @@ const Circle = () => (
     </svg>
 );
 
-const types = { Star, Circle };
+const types = { Star, Circle, Switch };
 
 export function Board() {
   const components = useSelector(selectComponents);
