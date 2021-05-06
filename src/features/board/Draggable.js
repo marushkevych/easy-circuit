@@ -5,19 +5,18 @@ import styles from './Board.module.css'
 import { useDispatch } from 'react-redux';
 import { updateElementMoveData } from './boardSlice'
 
-export default function Draggable({id, moveData, children}) {
+export default function Draggable({id, position, children}) {
   const dispatch = useDispatch();
 
-  const [state, setState] = useState(moveData);
+  const [state, setState] = useState({
+    position
+  });
 
   useEffect(() => {
     if(!state.moving) {
       dispatch(updateElementMoveData({
         id,
-        moveData: {
-          moving: false,
-          position: state.position,
-        }
+        position: state.position,
       }))
     }
   }, [state.moving])

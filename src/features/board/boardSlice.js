@@ -7,36 +7,24 @@ export const boardSlice = createSlice({
       1: {
         id: 1,
         type: 'Star',
-        moveData: {
-          moving: false,
-          position: { x: 50, y: 100 },
-          delta: undefined
-        }
+        position: { x: 50, y: 100 },
       },
       2: {
         id: 2,
         type: 'Circle',
-        moveData: {
-          moving: false,
-          position: { x: 600, y: 100 },
-          delta: undefined
-        }
+        position: { x: 600, y: 100 },
       },
       3: {
         id: 3,
         type: 'Switch',
-        moveData: {
-          moving: false,
-          position: { x: 600, y: 300 },
-          delta: undefined
-        }
+        position: { x: 600, y: 300 },
       },
     },
   },
   reducers: {
     updateElementMoveData: (state, action) => {
-      const { id, moveData } = action.payload;
-      state.components[id].moveData = moveData;
+      const { id, position } = action.payload;
+      state.components[id].position = position;
     },
   },
 });
