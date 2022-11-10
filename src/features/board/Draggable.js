@@ -21,16 +21,16 @@ export default function Draggable({id, position, children}) {
     }
   }, [state.moving])
 
-  const handleChange = useCallback((data) => {
+  const handleChange = useCallback(({moving, stoppedMoving, delta}) => {
     setState((state) => {
       return {
-        moving: data.moving,
-        position: data.stoppedMoving ? {
+        moving: moving,
+        position: stoppedMoving ? {
           ...state.position,
-          x: state.position.x + data.delta.x,
-          y: state.position.y + data.delta.y
+          x: state.position.x + delta.x,
+          y: state.position.y + delta.y
         } : state.position,
-        delta: data.moving ? data.delta : undefined
+        delta: moving ? delta : undefined
       }
     });
   }, []);
