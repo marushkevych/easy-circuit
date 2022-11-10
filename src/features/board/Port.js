@@ -8,7 +8,6 @@ export default function Port() {
   }
   const handleMouseMove = (event) => {
     console.log("port moise move")
-    event.stopPropagation();
   }
 
   return (

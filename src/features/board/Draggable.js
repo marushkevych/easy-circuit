@@ -1,9 +1,10 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { useMovable } from "react-move-hook";
 import styles from './Board.module.css'
 
 import { useDispatch } from 'react-redux';
 import { updateElementMoveData } from './boardSlice'
+import Port from './Port';
 
 export default function Draggable({id, position, children}) {
   const dispatch = useDispatch();
@@ -35,7 +36,9 @@ export default function Draggable({id, position, children}) {
     });
   }, []);
 
-  const ref = useMovable({ onChange: handleChange, bounds: "parent" });
+  const sizeRef = useRef();
+
+  const ref = useMovable({ onChange: handleChange, bounds: "parent", sizeRef });
 
   const style = {
     // backgroundColor: state.moving ? "red" : "transparent",
@@ -47,8 +50,12 @@ export default function Draggable({id, position, children}) {
   };
 
   return (
-    <div ref={ref} style={style} className={styles.movable}>
-      {children}
-    </div>
+      <div ref={sizeRef} style={style} className={styles.movable}>
+        <Port/>
+        <div ref={ref} >
+          {children}
+        </div>
+        <Port/>
+      </div>
   );
 }

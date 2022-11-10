@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import SwitchOn from '../shapes/SwitchOn'
 import SwitchOff from '../shapes/SwitchOff';
 import styles from './components.module.css';
-import Port from '../Port';
 
 export default function Switch() {
 
@@ -26,15 +25,13 @@ export default function Switch() {
   }
 
   return (
-      <div className={styles.container}>
-        <Port/>
+
         <div onMouseUp={handleMouseUp}
              onMouseDown={() => setIsMouseDown(true)}
              onMouseMove={handleMouseMove}
              className={styles.component}>
           {isOn ? <SwitchOn/> : <SwitchOff/>}
         </div>
-        <Port/>
-      </div>
+
   )
 }
