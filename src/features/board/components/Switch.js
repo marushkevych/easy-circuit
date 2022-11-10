@@ -29,7 +29,7 @@ export default function Switch() {
         <div className={styles.port}/>
         <div onMouseUp={handleMouseUp}
              onMouseDown={() => setIsMouseDown(true)}
-             onMouseMove={() => handleMouseMove(true)}
+             onMouseMove={handleMouseMove}
              className={styles.component}>
           {isOn ? <SwitchOn/> : <SwitchOff/>}
         </div>
