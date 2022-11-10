@@ -2,9 +2,9 @@ import React  from 'react'
 import { useSelector } from 'react-redux';
 import { selectComponents } from './boardSlice'
 import { values } from 'ramda';
-import Switch from './svgComponents/Switch';
-import Star from './svgComponents/Star';
-import Circle from './svgComponents/Circle';
+import Switch from './components/Switch';
+import Star from './shapes/Star';
+import Circle from './shapes/Circle';
 
 import styles from './Board.module.css'
 

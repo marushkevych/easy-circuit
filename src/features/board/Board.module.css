@@ -12,4 +12,5 @@
   cursor: grab;
   user-select: none;
   white-space: nowrap;
+  border: solid;
 }
