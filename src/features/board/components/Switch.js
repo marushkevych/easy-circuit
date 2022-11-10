@@ -25,7 +25,7 @@ export default function Switch() {
   }
 
   return (
-      <div>
+      <div className={styles.container}>
         <div className={styles.port}/>
         <div onMouseUp={handleMouseUp}
              onMouseDown={() => setIsMouseDown(true)}

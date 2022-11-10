@@ -2,6 +2,12 @@
   border: solid;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .port {
   border: solid;
   width: 10px;
