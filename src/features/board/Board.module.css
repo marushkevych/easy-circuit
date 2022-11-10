@@ -7,9 +7,16 @@
 
 .movable {
   position: absolute;
-  padding: 5px;
+  /*padding: 5px;*/
   /*border: 1px solid black;*/
   cursor: grab;
   user-select: none;
   white-space: nowrap;
+}
+
+.port {
+  border: solid;
+  width: 20px;
+  height: 20px;
+  cursor: all-scroll;
 }
