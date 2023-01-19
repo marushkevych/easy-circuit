@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import SwitchOn from '../shapes/SwitchOn'
 import SwitchOff from '../shapes/SwitchOff';
 import styles from './components.module.css';
+import Port from '../Port';
 
-export default function Switch() {
+export default function Switch({movableRef}) {
 
   const [isOn, setIsOn] = useState(false);
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -25,13 +26,18 @@ export default function Switch() {
   }
 
   return (
-
-        <div onMouseUp={handleMouseUp}
-             onMouseDown={() => setIsMouseDown(true)}
-             onMouseMove={handleMouseMove}
-             className={styles.component}>
-          {isOn ? <SwitchOn/> : <SwitchOff/>}
-        </div>
+        <>
+          { /* the ports are outside of "movableRef" since they should not be draggable.*/ }
+          <Port/>
+          <div ref={movableRef}
+               onMouseUp={handleMouseUp}
+               onMouseDown={() => setIsMouseDown(true)}
+               onMouseMove={handleMouseMove}
+               className={styles.component}>
+            {isOn ? <SwitchOn/> : <SwitchOff/>}
+          </div>
+          <Port/>
+        </>
 
   )
 }

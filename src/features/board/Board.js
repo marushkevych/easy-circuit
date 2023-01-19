@@ -24,5 +24,9 @@ export function Board() {
 function renderComponent(component) {
   const {id, type, position} = component;
   const ComponentType = types[type];
-  return <Draggable key={id} id={id} position={position}><ComponentType/></Draggable>
+  return (
+      <Draggable key={id} id={id} position={position}>
+        {ref => <ComponentType movableRef={ref}/>}
+      </Draggable>
+  );
 }

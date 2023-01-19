@@ -51,12 +51,7 @@ export default function Draggable({id, position, children}) {
 
   return (
       <div ref={sizeRef} style={style} className={styles.movable}>
-        { /* the port is outside of "movable" ref since it should not be draggable.*/ }
-        <Port/>
-        <div ref={ref} >
-          {children}
-        </div>
-        <Port/>
+        {children(ref)}
       </div>
   );
 }
